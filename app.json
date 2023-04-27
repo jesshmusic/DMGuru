@@ -25,6 +25,12 @@
     },
     "web": {
       "favicon": "./assets/favicon.png"
-    }
+    },
+    "extra": {
+      "eas": {
+        "projectId": "9b4b920c-5c0c-483d-a2ec-6daa5e521f93"
+      }
+    },
+    "owner": "jesshmusic"
   }
 }
