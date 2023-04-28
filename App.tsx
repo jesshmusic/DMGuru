@@ -8,6 +8,7 @@ import {RandomNameForm} from './components/RandomNameForm';
 import {RandomTavernForm} from './components/RandomTavernForm';
 import {RandomAdventureHookForm} from './components/RandomAdventureHookForm';
 import {Colors} from './utilities/enums';
+import {Footer} from './components/Footer';
 
 const customFonts = {
   'Nodesto': require('./assets/fonts/NodestoCapsCondensed.otf'),
@@ -38,6 +39,7 @@ export default function App() {
           <RandomNameForm />
           <RandomTavernForm />
           <RandomAdventureHookForm />
+          <Footer />
         </ScrollView>
       </ImageBackground>
     </View>
