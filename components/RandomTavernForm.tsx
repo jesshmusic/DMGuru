@@ -1,10 +1,10 @@
 import {useState} from 'react';
 import axios from 'axios';
 import {FrameView} from './FrameView';
-import {StyleSheet, Text, View} from 'react-native';
-import {Colors} from '../utilities/enums';
+import {StyleSheet, View} from 'react-native';
 import DMButton from './DMButton';
-import {API_URL} from '../App';
+import {API_URL} from '../utilities/enums';
+import {ResultView} from './ResultView';
 
 
 export const RandomTavernForm = () => {
@@ -22,9 +22,9 @@ export const RandomTavernForm = () => {
 
   return (
     <FrameView title='Tavern Name' subtitle="Generate a random tavern name">
-      {name && <Text>{name}</Text>}
+      {name && <ResultView name={name} />}
       <View style={styles.optionsRow}>
-        <DMButton color={Colors.primary} title={'Get Tavern'} onClick={handleGenerateName} />
+        <DMButton title={'Get Tavern'} onClick={handleGenerateName} />
       </View>
     </FrameView>
   )

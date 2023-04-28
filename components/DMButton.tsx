@@ -1,39 +1,37 @@
 import React from 'react';
 import { Colors } from '../utilities/enums';
-import {Button} from 'react-native';
+import {Pressable, StyleSheet, Text} from 'react-native';
 
 const DMButton = (props: {
-  id?: string;
-  dataBsDismiss?: string;
-  disabled?: boolean;
-  className?: string;
-  color: Colors;
   title: string;
   onClick?: (event: any) => void;
-  type?: 'button' | 'submit' | 'reset' | undefined;
-  icon?: React.ReactNode;
-  style?: object;
-  hideTitle?: boolean;
-  isFullWidth?: boolean;
 }) => {
   const {
-    className,
-    color,
-    dataBsDismiss,
-    disabled,
-    hideTitle,
-    icon,
-    id,
-    isFullWidth,
     onClick,
-    style,
     title,
-    type,
   } = props;
 
   return (
-    <Button title={title} color={Colors.primary} onPress={onClick}/>
+    <Pressable style={styles.button} onPress={onClick}>
+      <Text style={styles.title}>{title}</Text>
+    </Pressable>
   );
 };
+
+const styles = StyleSheet.create({
+  button: {
+    alignItems: 'center',
+    backgroundColor: Colors.danger,
+    borderRadius: 25,
+    display: 'flex',
+    justifyContent: 'center',
+    padding: 10
+  },
+  title: {
+    color: Colors.white,
+    fontFamily: 'ScalySans',
+    fontSize: 18
+  }
+})
 
 export default DMButton;

@@ -1,11 +1,12 @@
 import {useState} from 'react';
 import axios from 'axios';
 import {FrameView} from './FrameView';
-import {StyleSheet, Text, View} from 'react-native';
-import Dropdown from 'react-native-input-select';
+import {StyleSheet, View} from 'react-native';
+import Dropdown from './Dropdown/index';
 import {Colors} from '../utilities/enums';
 import DMButton from './DMButton';
-import {API_URL} from '../App';
+import {API_URL} from '../utilities/enums';
+import {ResultView} from './ResultView';
 
 const genderOptions: {value: string, label: string}[] = [
   { value: 'female', label: 'Female' },
@@ -52,7 +53,7 @@ export const RandomNameForm = () => {
 
   return (
     <FrameView title='Fantasy Character Name' subtitle="Generate a random fantasy name based on gender and race">
-      {name && <Text>{name}</Text>}
+      {name && <ResultView name={name} />}
       <View style={styles.optionsRow}>
         <Dropdown
           label="Gender"
@@ -64,6 +65,7 @@ export const RandomNameForm = () => {
           onValueChange={(value) => setGender(value)}
           primaryColor={Colors.danger}
           dropdownStyle={styles.dropdown}
+          selectedItemStyle={styles.selectedItem}
         />
         <Dropdown
           label="Race"
@@ -75,16 +77,34 @@ export const RandomNameForm = () => {
           onValueChange={(value) => setRace(value)}
           primaryColor={Colors.danger}
           dropdownStyle={styles.dropdown}
+          selectedItemStyle={styles.selectedItem}
+
         />
-        <DMButton color={Colors.primary} title={'Get Name'} onClick={handleGenerateName} />
       </View>
+      <DMButton title={'Get Name'} onClick={handleGenerateName} />
     </FrameView>
   )
 }
 
 const styles = StyleSheet.create({
   optionsRow: {
+    display: 'flex',
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    marginBottom: 10,
   },
   dropdown: {
+    alignItems: 'center',
+    backgroundColor: Colors.danger,
+    borderRadius: 25,
+    borderWidth: 0,
+    display: 'flex',
+    justifyContent: 'center',
+    minHeight: 32,
+    paddingVertical: 10,
+    paddingHorizontal: 5,
+  },
+  selectedItem: {
+    color: Colors.white,
   }
 })

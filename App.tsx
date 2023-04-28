@@ -1,12 +1,13 @@
 import { StatusBar } from 'expo-status-bar';
-import {ImageBackground, SafeAreaView, ScrollView, StyleSheet, Text} from 'react-native';
+import {ImageBackground, ScrollView, StyleSheet, Text, View} from 'react-native';
 import * as Font from 'expo-font';
-import {useEffect, useState} from 'react';
+import React, {useEffect, useState} from 'react';
 // @ts-ignore
 import BackgroundImage from './assets/BackgroundImage.png';
 import {RandomNameForm} from './components/RandomNameForm';
 import {RandomTavernForm} from './components/RandomTavernForm';
 import {RandomAdventureHookForm} from './components/RandomAdventureHookForm';
+import {Colors} from './utilities/enums';
 
 const customFonts = {
   'Nodesto': require('./assets/fonts/NodestoCapsCondensed.otf'),
@@ -15,7 +16,6 @@ const customFonts = {
   'ScalySans': require('./assets/fonts/ScalySans.otf')
 }
 
-export const API_URL = process.env.NODE_ENV === 'development' ? 'http://localhost:3000' : 'https://dungeonmaster.guru';
 export default function App() {
   const [fontsLoaded, setFontsLoaded] = useState(false);
 
@@ -29,28 +29,24 @@ export default function App() {
   }, [])
 
   return (fontsLoaded &&
-    <SafeAreaView style={styles.container}>
+    <View style={styles.container}>
       <ImageBackground source={BackgroundImage} style={styles.image}>
         <Text style={styles.title}>Dungeon Master Guru</Text>
         <Text style={{fontFamily: 'MrEaves', marginBottom: 25}}>Quick Tools for Game Masters</Text>
         <ScrollView style={styles.scrollView}>
-          <StatusBar style="auto" />
+          <StatusBar style='auto' />
           <RandomNameForm />
           <RandomTavernForm />
           <RandomAdventureHookForm />
         </ScrollView>
       </ImageBackground>
-    </SafeAreaView>
+    </View>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: '#fff',
     flex: 1,
-    fontFamily: 'Bookinsanity',
-    justifyContent: 'flex-start',
-    width: '100%'
   },
   image: {
     alignItems: 'center',
@@ -62,12 +58,13 @@ const styles = StyleSheet.create({
   },
   scrollView: {
     marginHorizontal: 0,
-    paddingVertical: 20,
+    paddingHorizontal: 10,
+    paddingVertical: 0,
     width: '100%'
   },
   title: {
     fontFamily: 'Nodesto',
-    fontSize: 30,
-    color: '#800'
+    fontSize: 36,
+    color: Colors.danger
   }
 });
