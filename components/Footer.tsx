@@ -16,7 +16,7 @@ export const Footer = () => {
       <Text style={styles.text}>
         For a full suite on tools for running your game check out:
       </Text>
-      <DMButton title="DungeonMaster.guru!" onClick={_handlePressButtonAsync} />
+      <DMButton title="DungeonMaster.guru" onClick={_handlePressButtonAsync} isTransparent size="sm" />
     </View>
   )
 }

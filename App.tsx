@@ -1,9 +1,10 @@
 import { StatusBar } from 'expo-status-bar';
+import { Image } from 'expo-image';
 import {ImageBackground, ScrollView, StyleSheet, Text, View} from 'react-native';
 import * as Font from 'expo-font';
 import React, {useEffect, useState} from 'react';
-// @ts-ignore
 import BackgroundImage from './assets/BackgroundImage.png';
+import DMLogo from './assets/DMLogo.svg';
 import {RandomNameForm} from './components/RandomNameForm';
 import {RandomTavernForm} from './components/RandomTavernForm';
 import {RandomAdventureHookForm} from './components/RandomAdventureHookForm';
@@ -32,8 +33,16 @@ export default function App() {
   return (fontsLoaded &&
     <View style={styles.container}>
       <ImageBackground source={BackgroundImage} style={styles.image}>
-        <Text style={styles.title}>Dungeon Master Guru</Text>
-        <Text style={{fontFamily: 'MrEaves', marginBottom: 25}}>Quick Tools for Game Masters</Text>
+        <View style={styles.header}>
+          <Image source={DMLogo}
+                 contentFit="cover"
+                 style={{width: 50, height: 50}}
+                 transition={1000} />
+          <View>
+            <Text style={styles.title}>Dungeon Master Guru</Text>
+            <Text style={{fontFamily: 'MrEaves', marginBottom: 25}}>Quick Tools for Game Masters</Text>
+          </View>
+        </View>
         <ScrollView style={styles.scrollView}>
           <StatusBar style='auto' />
           <RandomNameForm />
@@ -49,6 +58,11 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+  },
+  header: {
+    display: 'flex',
+    flexDirection: 'row',
+    justifyContent: 'space-between'
   },
   image: {
     alignItems: 'center',

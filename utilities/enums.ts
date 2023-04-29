@@ -12,4 +12,5 @@ export enum Colors {
   white = '#fff1f1'
 }
 
-export const API_URL = process.env.NODE_ENV === 'development' ? 'http://localhost:3000' : 'https://dungeonmaster.guru';
+// export const API_URL = process.env.NODE_ENV === 'development' ? 'http://localhost:3000' : 'https://dungeonmaster.guru';
+export const API_URL = 'https://dungeonmaster.guru';
