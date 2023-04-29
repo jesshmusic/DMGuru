@@ -1,6 +1,7 @@
 import {StyleSheet, Text, View} from 'react-native';
 import * as WebBrowser from 'expo-web-browser';
 import DMButton from './DMButton';
+import {Colors} from '../utilities/enums';
 
 export const Footer = () => {
   const _handlePressButtonAsync = async () => {
@@ -14,7 +15,7 @@ export const Footer = () => {
       </Text>
 
       <Text style={styles.text}>
-        For a full suite on tools for running your game check out:
+        For a full suite of tools for running your game check out:
       </Text>
       <DMButton title="DungeonMaster.guru" onClick={_handlePressButtonAsync} isTransparent size="sm" />
     </View>
@@ -23,14 +24,18 @@ export const Footer = () => {
 
 const styles = StyleSheet.create({
   container: {
+    backgroundColor: 'rgba(0, 0, 0, 0.5)',
     paddingBottom: 30,
     paddingHorizontal: 20,
-    paddingTop: 10,
+    paddingVertical: 20,
+    width: '100%',
   },
   text: {
+    color: Colors.white,
     fontFamily: 'Bookinsanity',
     fontSize: 14,
     marginBottom: 10,
+    textAlign: 'center'
   },
   link: {
 

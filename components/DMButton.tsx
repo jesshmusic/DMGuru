@@ -30,13 +30,13 @@ const DMButton = (props: {
     <Pressable style={{
       backgroundColor: props.isTransparent ? 'rgba(0,0,0,0)': Colors.danger,
       padding: props.isTransparent ? 0: 10,
-      marginBottom: props.isTransparent ? 20 : 0,
       ...styles.button
     }} onPress={onClick}>
       <Text style={{
-        color: props.isTransparent ? Colors.primaryDark : Colors.white,
+        color: props.isTransparent ? Colors.info : Colors.white,
         fontWeight: props.isTransparent ? 'bold' : 'normal',
         fontSize,
+        lineHeight: fontSize,
         ...styles.title
       }}>{title}</Text>
     </Pressable>
@@ -48,7 +48,8 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     borderRadius: 25,
     display: 'flex',
-    justifyContent: 'center'
+    justifyContent: 'center',
+    marginBottom: 0,
   },
   title: {
     fontFamily: 'ScalySans',

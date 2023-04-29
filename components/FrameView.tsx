@@ -2,6 +2,7 @@ import {StyleSheet, Text, View} from 'react-native';
 // @ts-ignore
 import BackgroundImage from '../assets/dndFrameOrange.png';
 import React from 'react';
+import {Colors} from '../utilities/enums';
 
 export const FrameView = (props: {title: string, subtitle: string, children: React.ReactNode}) => {
   const { title, subtitle, children } = props;
@@ -20,7 +21,7 @@ export const FrameView = (props: {title: string, subtitle: string, children: Rea
 
 const styles = StyleSheet.create({
   border: {
-    backgroundColor: '#ea8000',
+    backgroundColor: Colors.warning,
     borderColor: '#000',
     borderWidth: 1,
     height: 5,
@@ -28,10 +29,7 @@ const styles = StyleSheet.create({
   },
   frame: {
     backgroundClip: 'border-box',
-    backgroundColor: '#fdf1dc',
-    shadowColor: '#555',
-    shadowRadius: 5,
-    shadowOpacity: 0.5,
+    backgroundColor: 'rgba(253,241,220,0.45)',
     display: 'flex',
     flexDirection: 'column',
     fontFamily: 'ScalySans',

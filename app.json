@@ -2,14 +2,14 @@
   "expo": {
     "name": "Dungeon Master Guru",
     "slug": "dungeon-master-guru",
-    "version": "1.0.0",
+    "version": "1.0.2",
     "orientation": "portrait",
     "icon": "./assets/DMLogo.png",
     "userInterfaceStyle": "light",
     "splash": {
-      "image": "./assets/DMLogo.png",
+      "image": "./assets/splash.png",
       "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
+      "backgroundColor": "#000000"
     },
     "assetBundlePatterns": [
       "assets/**/*"
@@ -20,11 +20,11 @@
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "./assets/DMLogo.png",
-        "backgroundColor": "#ffffff"
+        "foregroundImage": "./assets/DMLogo-transparent.png",
+        "backgroundColor": "#571a10"
       },
       "package": "com.jesshmusic.dungeonmasterguru",
-      "versionCode": 1
+      "versionCode": 2
     },
     "web": {
       "favicon": "./assets/favicon.png"

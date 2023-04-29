@@ -3,6 +3,7 @@ export enum Colors {
   primaryLight = 'rgba(161,111,106,0.42)',
   secondary = '#7f513e',
   success = '#7a853b',
+  successDark = '#242611',
   primaryDark = '#571a10',
   info = '#c9ad6a',
   warning = '#dd9529',

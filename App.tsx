@@ -4,7 +4,7 @@ import {ImageBackground, ScrollView, StyleSheet, Text, View} from 'react-native'
 import * as Font from 'expo-font';
 import React, {useEffect, useState} from 'react';
 import BackgroundImage from './assets/BackgroundImage.png';
-import DMLogo from './assets/DMLogo.svg';
+import DMLogo from './assets/DMLogo-notext.png';
 import {RandomNameForm} from './components/RandomNameForm';
 import {RandomTavernForm} from './components/RandomTavernForm';
 import {RandomAdventureHookForm} from './components/RandomAdventureHookForm';
@@ -36,7 +36,7 @@ export default function App() {
         <View style={styles.header}>
           <Image source={DMLogo}
                  contentFit="cover"
-                 style={{width: 50, height: 50}}
+                 style={styles.logo}
                  transition={1000} />
           <View>
             <Text style={styles.title}>Dungeon Master Guru</Text>
@@ -69,8 +69,13 @@ const styles = StyleSheet.create({
     flex: 1,
     resizeMode: 'cover',
     justifyContent: 'flex-start',
-    paddingTop: 50,
+    paddingTop: 60,
     width: '100%'
+  },
+  logo: {
+    width: 50,
+    height: 50,
+    marginRight: 5
   },
   scrollView: {
     marginHorizontal: 0,
@@ -79,8 +84,10 @@ const styles = StyleSheet.create({
     width: '100%'
   },
   title: {
+    letterSpacing: -0.5,
     fontFamily: 'Nodesto',
     fontSize: 36,
-    color: Colors.danger
+    color: Colors.danger,
+    lineHeight: 36,
   }
 });
