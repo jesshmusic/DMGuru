@@ -39,7 +39,7 @@ export default function App() {
                  style={styles.logo}
                  transition={1000} />
           <View>
-            <Text style={styles.title}>Dungeon Master Guru</Text>
+            <Text style={styles.title}>Game Master Guru</Text>
             <Text style={{fontFamily: 'MrEaves', marginBottom: 25}}>Quick Tools for Game Masters</Text>
           </View>
         </View>

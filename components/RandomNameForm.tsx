@@ -38,22 +38,26 @@ export const RandomNameForm = () => {
   const [name, setName] = useState<string | undefined>();
   const [gender, setGender] = useState('other');
   const [race, setRace] = useState('human');
+  const [isLoading, setIsLoading] = useState(false);
 
   const handleGenerateName = async () => {
     const apiURL = `${API_URL}/v1/random_fantasy_name.json?random_monster_gender=${gender}&random_monster_race=${
       race ? race : 'human'
     }`;
     try {
+      setIsLoading(true);
       const response = await axios.get<{ name: string }>(apiURL);
+      setIsLoading(false);
       setName(response.data.name);
     } catch (error) {
       setName(error.message);
+      setIsLoading(false);
     }
   };
 
   return (
     <FrameView title='Fantasy Character Name' subtitle="Generate a random fantasy name based on gender and race">
-      {name && <ResultView name={name} />}
+      <ResultView name={name} isLoading={isLoading} loadingText={'Generating Name...'}/>
       <View style={styles.optionsRow}>
         <Dropdown
           label="Gender"
@@ -78,7 +82,6 @@ export const RandomNameForm = () => {
           primaryColor={Colors.danger}
           dropdownStyle={styles.dropdown}
           selectedItemStyle={styles.selectedItem}
-
         />
       </View>
       <DMButton title={'Get Name'} onClick={handleGenerateName} />

@@ -2,9 +2,9 @@
   "expo": {
     "name": "Dungeon Master Guru",
     "slug": "dungeon-master-guru",
-    "version": "1.0.2",
+    "version": "1.0.3",
     "orientation": "portrait",
-    "icon": "./assets/DMLogo.png",
+    "icon": "./assets/DMLogo-notext.png",
     "userInterfaceStyle": "light",
     "splash": {
       "image": "./assets/splash.png",
@@ -24,7 +24,7 @@
         "backgroundColor": "#571a10"
       },
       "package": "com.jesshmusic.dungeonmasterguru",
-      "versionCode": 2
+      "versionCode": 3
     },
     "web": {
       "favicon": "./assets/favicon.png"

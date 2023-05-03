@@ -2,8 +2,9 @@ import {View, Text, StyleSheet} from 'react-native';
 import * as Clipboard from 'expo-clipboard';
 import {Colors} from '../utilities/enums';
 import {useState} from 'react';
+import DndSpinner from './DndSpinner';
 
-export const ResultView = (props: {name: string}) => {
+export const ResultView = (props: {name: string, isLoading: boolean, loadingText: string}) => {
   const [containerStyle, setContainerStyle] = useState(styles.container);
   const [isCopied, setIsCopied] = useState(false);
   const onPress = async () => {
@@ -14,10 +15,16 @@ export const ResultView = (props: {name: string}) => {
 
   return (
     <View style={styles.wrapper}>
-      <View style={containerStyle}>
-        <Text style={styles.text} onPress={onPress}>{props.name}</Text>
-      </View>
-      {isCopied ? <Text style={styles.isCopiedText}>Copied to clipboard</Text> : <Text style={{...styles.isCopiedText, color: Colors.primaryDark}}>Click to copy to clipboard</Text> }
+      {props.isLoading ? (
+          <DndSpinner text={props.loadingText} />
+        ) : (
+        <>
+          <View style={containerStyle}>
+            <Text style={styles.text} onPress={onPress}>{props.name}</Text>
+          </View>
+          {isCopied ? <Text style={styles.isCopiedText}>Copied to clipboard</Text> : <Text style={{...styles.isCopiedText, color: Colors.primaryDark}}>Click to copy to clipboard</Text> }
+        </>
+      )}
     </View>
   )
 }
@@ -44,7 +51,8 @@ const styles = StyleSheet.create({
   },
   text: {
     fontFamily: 'Bookinsanity',
-    fontSize: 18
+    fontSize: 18,
+    lineHeight: 25,
   },
   isCopiedText: {
     color: Colors.successDark,

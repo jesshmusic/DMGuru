@@ -11,20 +11,24 @@ export const RandomAdventureHookForm = () => {
   const [name, setName] = useState<string | undefined>();
   const [playerCount, setPlayerCount] = useState(5);
   const [averageLevel, setAverageLevel] = useState(3);
+  const [isLoading, setIsLoading] = useState(false);
 
   const handleGenerateName = async () => {
     const apiURL = `${API_URL}/v1/adventure_hook.json?player_count=${playerCount}&average_level=${averageLevel}`;
     try {
+      setIsLoading(true);
       const response = await axios.get<{ adventure_hook: string }>(apiURL);
+      setIsLoading(false);
       setName(response.data.adventure_hook);
     } catch (error) {
+      setIsLoading(false);
       setName(error.message);
     }
   };
 
   return (
     <FrameView title='Adventure Hook' subtitle="Generate a random adventure hook">
-      {name && <ResultView name={name} />}
+      <ResultView name={name} isLoading={isLoading} loadingText={'Generating Hook...' }/>
       <View style={styles.optionsRow}>
         <Text style={styles.text}>Number of Players: {playerCount}</Text>
         <Slider
