@@ -4,7 +4,7 @@ import {ImageBackground, ScrollView, StyleSheet, Text, View} from 'react-native'
 import * as Font from 'expo-font';
 import React, {useEffect, useState} from 'react';
 import BackgroundImage from './assets/BackgroundImage.png';
-import DMLogo from './assets/DMLogo-notext.png';
+import DMLogo from './assets/DMLogo.svg';
 import {RandomNameForm} from './components/RandomNameForm';
 import {RandomTavernForm} from './components/RandomTavernForm';
 import {RandomAdventureHookForm} from './components/RandomAdventureHookForm';
