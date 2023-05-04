@@ -21,9 +21,11 @@ const PageLayout = (props: {children: ReactNode}) => {
             <Text style={{fontFamily: 'MrEaves', marginBottom: 25}}>Quick Tools for Game Masters</Text>
           </View>
         </View>
-        <StatusBar style='auto' />
-        {props.children}
-        <Footer />
+        <View style={styles.content}>
+          {props.children}
+          <Footer />
+        </View>
+        <StatusBar style='dark' />
       </ImageBackground>
     </View>
   )
@@ -32,6 +34,11 @@ const PageLayout = (props: {children: ReactNode}) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+  },
+  content: {
+    alignItems: 'center',
+    flex: 1,
+    justifyContent: 'space-between',
   },
   header: {
     display: 'flex',
