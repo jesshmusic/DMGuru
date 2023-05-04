@@ -1,10 +1,10 @@
 import {useState} from 'react';
 import axios from 'axios';
-import {FrameView} from './FrameView';
+import {FrameView} from '../containers/FrameView';
 import {StyleSheet, Text, View} from 'react-native';
 import DMButton from './DMButton';
 import Slider from '@react-native-community/slider';
-import {API_URL, Colors} from '../utilities/enums';
+import {API_URL, Colors} from '../utilities';
 import {ResultView} from './ResultView';
 
 export const RandomAdventureHookForm = () => {
@@ -27,7 +27,7 @@ export const RandomAdventureHookForm = () => {
   };
 
   return (
-    <FrameView title='Adventure Hook' subtitle="Generate a random adventure hook">
+    <FrameView title='Adventure Hook' subtitle="Generate a random adventure hook" iconName="Adventure Hook">
       <ResultView name={name} isLoading={isLoading} loadingText={'Generating Hook...' }/>
       <View style={styles.optionsRow}>
         <Text style={styles.text}>Number of Players: {playerCount}</Text>

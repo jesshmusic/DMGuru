@@ -1,11 +1,11 @@
 import {useState} from 'react';
 import axios from 'axios';
-import {FrameView} from './FrameView';
+import {FrameView} from '../containers/FrameView';
 import {StyleSheet, View} from 'react-native';
 import Dropdown from './Dropdown/index';
-import {Colors} from '../utilities/enums';
+import {Colors} from '../utilities';
 import DMButton from './DMButton';
-import {API_URL} from '../utilities/enums';
+import {API_URL} from '../utilities';
 import {ResultView} from './ResultView';
 
 const genderOptions: {value: string, label: string}[] = [
@@ -56,7 +56,7 @@ export const RandomNameForm = () => {
   };
 
   return (
-    <FrameView title='Fantasy Character Name' subtitle="Generate a random fantasy name based on gender and race">
+    <FrameView title='Fantasy Character Name' subtitle="Generate a random fantasy name based on gender and race" iconName="PC Name">
       <ResultView name={name} isLoading={isLoading} loadingText={'Generating Name...'}/>
       <View style={styles.optionsRow}>
         <Dropdown

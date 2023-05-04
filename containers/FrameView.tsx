@@ -2,15 +2,18 @@ import {StyleSheet, Text, View} from 'react-native';
 // @ts-ignore
 import BackgroundImage from '../assets/dndFrameOrange.png';
 import React from 'react';
-import {Colors} from '../utilities/enums';
+import {Colors, getIconForPage} from '../utilities';
 
-export const FrameView = (props: {title: string, subtitle: string, children: React.ReactNode}) => {
-  const { title, subtitle, children } = props;
+export const FrameView = (props: {title: string, subtitle: string, children: React.ReactNode, iconName: string}) => {
+  const { title, subtitle, children, iconName } = props;
   return (
     <View style={styles.frame}>
       <View style={styles.border}></View>
       <View style={styles.body}>
-        <Text style={styles.title}>{title}</Text>
+        <View style={styles.titleContainer}>
+          {getIconForPage(iconName, 24)}
+          <Text style={styles.title}>{title}</Text>
+        </View>
         <Text style={styles.subtitle}>{subtitle}</Text>
         {children}
       </View>
@@ -49,6 +52,11 @@ const styles = StyleSheet.create({
     resizeMode: 'cover',
     justifyContent: 'flex-start',
   },
+  titleContainer: {
+    alignItems: 'center',
+    display: 'flex',
+    flexDirection: 'row'
+  },
   title: {
     alignItems: 'flex-start',
     color: '#571a10',
@@ -57,6 +65,7 @@ const styles = StyleSheet.create({
     fontSize: 20,
     justifyContent: 'space-between',
     marginBottom: 0,
+    marginLeft: 5,
     width: '100%'
   },
   subtitle: {

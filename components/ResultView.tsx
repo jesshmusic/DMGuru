@@ -1,6 +1,6 @@
 import {View, Text, StyleSheet} from 'react-native';
 import * as Clipboard from 'expo-clipboard';
-import {Colors} from '../utilities/enums';
+import {Colors} from '../utilities';
 import {useState} from 'react';
 import DndSpinner from './DndSpinner';
 

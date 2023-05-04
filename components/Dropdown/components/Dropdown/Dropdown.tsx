@@ -3,7 +3,7 @@ import { View, Text, StyleSheet } from 'react-native';
 import DropdownSelectedItemsView from './DropdownSelectedItemsView';
 import { colors } from '../../styles/colors';
 import { typography } from '../../styles/typography';
-import {Colors} from '../../../../utilities/enums';
+import {Colors} from '../../../../utilities';
 
 const Dropdown = ({
   label,

@@ -1,5 +1,5 @@
 import React from 'react';
-import {Colors} from '../utilities/enums';
+import {Colors} from '../utilities';
 import {Pressable, StyleSheet, Text} from 'react-native';
 
 const DMButton = (props: {

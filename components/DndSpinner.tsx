@@ -5,7 +5,7 @@
 import React, {useEffect, useRef} from 'react';
 import {StyleSheet, View, Text, Animated, Easing} from 'react-native';
 import EvilIcons from '@expo/vector-icons/EvilIcons';
-import {Colors} from '../utilities/enums';
+import {Colors} from '../utilities';
 
 
 const DndSpinner = (props: { text?: string }) => {

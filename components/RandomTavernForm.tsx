@@ -1,9 +1,9 @@
 import {useState} from 'react';
 import axios from 'axios';
-import {FrameView} from './FrameView';
+import {FrameView} from '../containers/FrameView';
 import {StyleSheet, View} from 'react-native';
 import DMButton from './DMButton';
-import {API_URL} from '../utilities/enums';
+import {API_URL} from '../utilities';
 import {ResultView} from './ResultView';
 
 
@@ -25,7 +25,7 @@ export const RandomTavernForm = () => {
   };
 
   return (
-    <FrameView title='Tavern Name' subtitle="Generate a random tavern name">
+    <FrameView title='Tavern Name' subtitle="Generate a random tavern name" iconName="Tavern Name">
       <ResultView name={name} isLoading={isLoading} loadingText={'Generating Tavern...'} />
       <View style={styles.optionsRow}>
         <DMButton title={'Get Tavern'} onClick={handleGenerateName} />

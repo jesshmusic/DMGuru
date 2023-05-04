@@ -1,15 +1,12 @@
-import { StatusBar } from 'expo-status-bar';
-import { Image } from 'expo-image';
-import {ImageBackground, ScrollView, StyleSheet, Text, View} from 'react-native';
 import * as Font from 'expo-font';
 import React, {useEffect, useState} from 'react';
-import BackgroundImage from './assets/BackgroundImage.png';
-import DMLogo from './assets/DMLogo.svg';
+import { NavigationContainer } from '@react-navigation/native';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import {RandomNameForm} from './components/RandomNameForm';
 import {RandomTavernForm} from './components/RandomTavernForm';
 import {RandomAdventureHookForm} from './components/RandomAdventureHookForm';
-import {Colors} from './utilities/enums';
-import {Footer} from './components/Footer';
+import PageLayout from './containers/PageLayout';
+import {Colors, getIconForPage} from './utilities';
 
 const customFonts = {
   'Nodesto': require('./assets/fonts/NodestoCapsCondensed.otf'),
@@ -18,6 +15,31 @@ const customFonts = {
   'ScalySans': require('./assets/fonts/ScalySans.otf')
 }
 
+const RandomNamePage = () => {
+  return (
+    <PageLayout>
+      <RandomNameForm />
+    </PageLayout>
+  )
+}
+
+const RandomTavernPage = () => {
+  return (
+    <PageLayout>
+      <RandomTavernForm />
+    </PageLayout>
+  )
+}
+
+const RandomHookPage = () => {
+  return (
+    <PageLayout>
+      <RandomAdventureHookForm />
+    </PageLayout>
+  )
+}
+
+const Tab = createBottomTabNavigator();
 export default function App() {
   const [fontsLoaded, setFontsLoaded] = useState(false);
 
@@ -30,64 +52,27 @@ export default function App() {
     componentDidMount();
   }, [])
 
-  return (fontsLoaded &&
-    <View style={styles.container}>
-      <ImageBackground source={BackgroundImage} style={styles.image}>
-        <View style={styles.header}>
-          <Image source={DMLogo}
-                 contentFit="cover"
-                 style={styles.logo}
-                 transition={1000} />
-          <View>
-            <Text style={styles.title}>Game Master Guru</Text>
-            <Text style={{fontFamily: 'MrEaves', marginBottom: 25}}>Quick Tools for Game Masters</Text>
-          </View>
-        </View>
-        <ScrollView style={styles.scrollView}>
-          <StatusBar style='auto' />
-          <RandomNameForm />
-          <RandomTavernForm />
-          <RandomAdventureHookForm />
-          <Footer />
-        </ScrollView>
-      </ImageBackground>
-    </View>
-  );
+  return fontsLoaded &&
+    <NavigationContainer>
+      <Tab.Navigator
+        screenOptions={({route}) => ({
+          tabBarIcon: () => {
+            return getIconForPage(route.name);
+          },
+          tabBarStyle: {
+            backgroundColor: Colors.black
+          },
+          tabBarActiveBackgroundColor: Colors.dark,
+          tabBarActiveTintColor: Colors.primaryBright,
+          tabBarInactiveBackgroundColor: Colors.black,
+          tabBarInactiveTintColor: Colors.info,
+          tabBarItemStyle: {
+            paddingVertical: 10,
+          }
+        })}>
+        <Tab.Screen name="PC Name" component={RandomNamePage} />
+        <Tab.Screen name="Tavern Name" component={RandomTavernPage} />
+        <Tab.Screen name="Adventure Hook" component={RandomHookPage} />
+      </Tab.Navigator>
+    </NavigationContainer>;
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-  },
-  header: {
-    display: 'flex',
-    flexDirection: 'row',
-    justifyContent: 'space-between'
-  },
-  image: {
-    alignItems: 'center',
-    flex: 1,
-    resizeMode: 'cover',
-    justifyContent: 'flex-start',
-    paddingTop: 60,
-    width: '100%'
-  },
-  logo: {
-    width: 50,
-    height: 50,
-    marginRight: 5
-  },
-  scrollView: {
-    marginHorizontal: 0,
-    paddingHorizontal: 10,
-    paddingVertical: 0,
-    width: '100%'
-  },
-  title: {
-    letterSpacing: -0.5,
-    fontFamily: 'Nodesto',
-    fontSize: 36,
-    color: Colors.danger,
-    lineHeight: 36,
-  }
-});

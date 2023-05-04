@@ -1,7 +1,7 @@
 import {StyleSheet, Text, View} from 'react-native';
 import * as WebBrowser from 'expo-web-browser';
 import DMButton from './DMButton';
-import {Colors} from '../utilities/enums';
+import {Colors} from '../utilities';
 
 export const Footer = () => {
   const _handlePressButtonAsync = async () => {
@@ -16,6 +16,11 @@ export const Footer = () => {
 
       <Text style={styles.text}>
         For a full suite of tools for running your game check out:
+      </Text>
+
+      <Text style={styles.text}>
+        &copy; 2023 Existential Music
+        Open Game License v 1.0a Copyright 2000, Wizards of the Coast, LLC.
       </Text>
       <DMButton title="Our Main Site" onClick={_handlePressButtonAsync} isTransparent size="sm" />
     </View>
