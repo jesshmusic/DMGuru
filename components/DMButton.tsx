@@ -1,6 +1,6 @@
 import React from 'react';
-import {Colors} from '../utilities';
-import {Pressable, StyleSheet, Text} from 'react-native';
+import { Colors } from '../utilities';
+import { Pressable, StyleSheet, Text } from 'react-native';
 
 const DMButton = (props: {
   title: string;
@@ -8,10 +8,7 @@ const DMButton = (props: {
   size?: 'sm' | 'md' | 'lg';
   onClick?: (event: any) => void;
 }) => {
-  const {
-    onClick,
-    title,
-  } = props;
+  const { onClick, title } = props;
   let fontSize = 18;
   if (props.size) {
     switch (props.size) {
@@ -22,23 +19,30 @@ const DMButton = (props: {
         fontSize = 22;
         break;
       default:
-        fontSize = 18
+        fontSize = 18;
     }
   }
 
   return (
-    <Pressable style={{
-      backgroundColor: props.isTransparent ? 'rgba(0,0,0,0)': Colors.danger,
-      padding: props.isTransparent ? 0: 10,
-      ...styles.button
-    }} onPress={onClick}>
-      <Text style={{
-        color: props.isTransparent ? Colors.info : Colors.white,
-        fontWeight: props.isTransparent ? 'bold' : 'normal',
-        fontSize,
-        lineHeight: fontSize,
-        ...styles.title
-      }}>{title}</Text>
+    <Pressable
+      style={{
+        backgroundColor: props.isTransparent ? 'rgba(0,0,0,0)' : Colors.danger,
+        padding: props.isTransparent ? 0 : 10,
+        ...styles.button,
+      }}
+      onPress={onClick}
+    >
+      <Text
+        style={{
+          color: props.isTransparent ? Colors.info : Colors.white,
+          fontWeight: props.isTransparent ? 'bold' : 'normal',
+          fontSize,
+          lineHeight: fontSize,
+          ...styles.title,
+        }}
+      >
+        {title}
+      </Text>
     </Pressable>
   );
 };
@@ -53,7 +57,7 @@ const styles = StyleSheet.create({
   },
   title: {
     fontFamily: 'ScalySans',
-  }
-})
+  },
+});
 
 export default DMButton;

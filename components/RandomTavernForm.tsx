@@ -1,11 +1,10 @@
-import {useState} from 'react';
+import { useState } from 'react';
 import axios from 'axios';
-import {FrameView} from '../containers/FrameView';
-import {StyleSheet, View} from 'react-native';
+import { FrameView } from '../containers/FrameView';
+import { StyleSheet, View } from 'react-native';
 import DMButton from './DMButton';
-import {API_URL} from '../utilities';
-import {ResultView} from './ResultView';
-
+import { API_URL } from '../utilities';
+import { ResultView } from './ResultView';
 
 export const RandomTavernForm = () => {
   const [name, setName] = useState<string | undefined>();
@@ -25,18 +24,25 @@ export const RandomTavernForm = () => {
   };
 
   return (
-    <FrameView title='Tavern Name' subtitle="Generate a random tavern name" iconName="Tavern Name" maxWidth={600}>
-      <ResultView name={name} isLoading={isLoading} loadingText={'Generating Tavern...'} />
+    <FrameView
+      title="Tavern Name"
+      subtitle="Generate a random tavern name"
+      iconName="Tavern Name"
+      maxWidth={600}
+    >
+      <ResultView
+        name={name}
+        isLoading={isLoading}
+        loadingText={'Generating Tavern...'}
+      />
       <View style={styles.optionsRow}>
         <DMButton title={'Get Tavern'} onClick={handleGenerateName} />
       </View>
     </FrameView>
-  )
-}
+  );
+};
 
 const styles = StyleSheet.create({
-  optionsRow: {
-  },
-  dropdown: {
-  }
-})
+  optionsRow: {},
+  dropdown: {},
+});

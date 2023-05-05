@@ -1,5 +1,5 @@
 import PageLayout from '../containers/PageLayout';
-import {RandomTavernForm} from '../components/RandomTavernForm';
+import { RandomTavernForm } from '../components/RandomTavernForm';
 import React from 'react';
 
 export const RandomTavernPage = () => {
@@ -7,5 +7,5 @@ export const RandomTavernPage = () => {
     <PageLayout>
       <RandomTavernForm />
     </PageLayout>
-  )
-}
+  );
+};

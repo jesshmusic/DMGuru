@@ -1,11 +1,11 @@
-import {useState} from 'react';
+import { useState } from 'react';
 import axios from 'axios';
-import {FrameView} from '../containers/FrameView';
-import {StyleSheet, Text, View} from 'react-native';
+import { FrameView } from '../containers/FrameView';
+import { StyleSheet, Text, View } from 'react-native';
 import DMButton from './DMButton';
 import Slider from '@react-native-community/slider';
-import {API_URL, Colors} from '../utilities';
-import {ResultView} from './ResultView';
+import { API_URL, Colors } from '../utilities';
+import { ResultView } from './ResultView';
 
 export const RandomAdventureHookForm = () => {
   const [name, setName] = useState<string | undefined>();
@@ -27,8 +27,17 @@ export const RandomAdventureHookForm = () => {
   };
 
   return (
-    <FrameView title='Adventure Hook' subtitle="Generate a random adventure hook" iconName="Adventure Hook" maxWidth={600}>
-      <ResultView name={name} isLoading={isLoading} loadingText={'Generating Hook...' }/>
+    <FrameView
+      title="Adventure Hook"
+      subtitle="Generate a random adventure hook"
+      iconName="Adventure Hook"
+      maxWidth={600}
+    >
+      <ResultView
+        name={name}
+        isLoading={isLoading}
+        loadingText={'Generating Hook...'}
+      />
       <View style={styles.optionsRow}>
         <Text style={styles.text}>Number of Players: {playerCount}</Text>
         <Slider
@@ -47,7 +56,7 @@ export const RandomAdventureHookForm = () => {
           maximumValue={20}
           minimumTrackTintColor={Colors.primary}
           step={1}
-          style={{marginBottom: 10, ...styles.slider}}
+          style={{ marginBottom: 10, ...styles.slider }}
           tapToSeek
           value={averageLevel}
           onValueChange={setAverageLevel}
@@ -55,14 +64,12 @@ export const RandomAdventureHookForm = () => {
         <DMButton title={'Get Adventure Hook'} onClick={handleGenerateName} />
       </View>
     </FrameView>
-  )
-}
+  );
+};
 
 const styles = StyleSheet.create({
-  optionsRow: {
-  },
-  dropdown: {
-  },
+  optionsRow: {},
+  dropdown: {},
   slider: {
     width: '100%',
     opacity: 1,
@@ -76,4 +83,4 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     marginTop: 10,
   },
-})
+});

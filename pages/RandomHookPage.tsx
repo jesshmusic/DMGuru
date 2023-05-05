@@ -1,5 +1,5 @@
 import PageLayout from '../containers/PageLayout';
-import {RandomAdventureHookForm} from '../components/RandomAdventureHookForm';
+import { RandomAdventureHookForm } from '../components/RandomAdventureHookForm';
 import React from 'react';
 
 export const RandomHookPage = () => {
@@ -7,5 +7,5 @@ export const RandomHookPage = () => {
     <PageLayout>
       <RandomAdventureHookForm />
     </PageLayout>
-  )
-}
+  );
+};

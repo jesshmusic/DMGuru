@@ -3,7 +3,7 @@ import { View, Text, StyleSheet } from 'react-native';
 import DropdownSelectedItemsView from './DropdownSelectedItemsView';
 import { colors } from '../../styles/colors';
 import { typography } from '../../styles/typography';
-import {Colors} from '../../../../utilities';
+import { Colors } from '../../../../utilities';
 
 const Dropdown = ({
   label,
@@ -67,16 +67,16 @@ const styles = StyleSheet.create({
     fontFamily: 'MrEaves',
     marginBottom: 2,
     color: Colors.primary,
-    ...typography.caption
+    ...typography.caption,
   },
   error: {
     color: Colors.danger,
     marginTop: 8,
-    ...typography.caption
+    ...typography.caption,
   },
   helper: { marginTop: 8, color: colors.primary, ...typography.caption },
   dropdownInputContainer: {
-    width: '49%'
+    width: '49%',
   },
   blackText: { color: colors.black },
 });

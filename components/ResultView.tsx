@@ -1,37 +1,49 @@
-import {View, Text, StyleSheet} from 'react-native';
+import { View, Text, StyleSheet } from 'react-native';
 import * as Clipboard from 'expo-clipboard';
-import {Colors} from '../utilities';
-import {useState} from 'react';
+import { Colors } from '../utilities';
+import { useState } from 'react';
 import DndSpinner from './DndSpinner';
 
-export const ResultView = (props: {name: string, isLoading: boolean, loadingText: string}) => {
+export const ResultView = (props: {
+  name: string;
+  isLoading: boolean;
+  loadingText: string;
+}) => {
   const [containerStyle, setContainerStyle] = useState(styles.container);
   const [isCopied, setIsCopied] = useState(false);
   const onPress = async () => {
-    setContainerStyle(styles.containerCopied)
+    setContainerStyle(styles.containerCopied);
     await Clipboard.setStringAsync(props.name);
     setIsCopied(true);
-  }
+  };
 
   return (
     <View style={styles.wrapper}>
       {props.isLoading ? (
-          <DndSpinner text={props.loadingText} />
-        ) : (
+        <DndSpinner text={props.loadingText} />
+      ) : (
         <>
           <View style={containerStyle}>
-            <Text style={styles.text} onPress={onPress}>{props.name}</Text>
+            <Text style={styles.text} onPress={onPress}>
+              {props.name}
+            </Text>
           </View>
-          {isCopied ? <Text style={styles.isCopiedText}>Copied to clipboard</Text> : <Text style={{...styles.isCopiedText, color: Colors.primaryDark}}>Click to copy to clipboard</Text> }
+          {isCopied ? (
+            <Text style={styles.isCopiedText}>Copied to clipboard</Text>
+          ) : (
+            <Text style={{ ...styles.isCopiedText, color: Colors.primaryDark }}>
+              Click to copy to clipboard
+            </Text>
+          )}
         </>
       )}
     </View>
-  )
-}
+  );
+};
 
 const styles = StyleSheet.create({
   wrapper: {
-    marginVertical: 10
+    marginVertical: 10,
   },
   container: {
     backgroundColor: Colors.primaryLight,
@@ -59,5 +71,5 @@ const styles = StyleSheet.create({
     fontFamily: 'ScalySans',
     fontSize: 12,
     lineHeight: 12,
-  }
-})
+  },
+});

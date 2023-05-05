@@ -1,20 +1,20 @@
-import {useState} from 'react';
+import { useState } from 'react';
 import axios from 'axios';
-import {FrameView} from '../containers/FrameView';
-import {StyleSheet, View} from 'react-native';
+import { FrameView } from '../containers/FrameView';
+import { StyleSheet, View } from 'react-native';
 import Dropdown from './Dropdown/index';
-import {Colors} from '../utilities';
+import { Colors } from '../utilities';
 import DMButton from './DMButton';
-import {API_URL} from '../utilities';
-import {ResultView} from './ResultView';
+import { API_URL } from '../utilities';
+import { ResultView } from './ResultView';
 
-const genderOptions: {value: string, label: string}[] = [
+const genderOptions: { value: string; label: string }[] = [
   { value: 'female', label: 'Female' },
   { value: 'male', label: 'Male' },
   { value: 'other', label: 'Other' },
 ];
 
-export const raceOptions: {value: string, label: string}[] = [
+export const raceOptions: { value: string; label: string }[] = [
   { value: '', label: 'Any' },
   { value: 'aasimar', label: 'Aasimar' },
   { value: 'bugbear', label: 'Bugbear' },
@@ -56,8 +56,17 @@ export const RandomNameForm = () => {
   };
 
   return (
-    <FrameView title='Fantasy Character Name' subtitle="Generate a random fantasy name based on gender and race" iconName="PC Name" maxWidth={600}>
-      <ResultView name={name} isLoading={isLoading} loadingText={'Generating Name...'}/>
+    <FrameView
+      title="Fantasy Character Name"
+      subtitle="Generate a random fantasy name based on gender and race"
+      iconName="PC Name"
+      maxWidth={600}
+    >
+      <ResultView
+        name={name}
+        isLoading={isLoading}
+        loadingText={'Generating Name...'}
+      />
       <View style={styles.optionsRow}>
         <Dropdown
           label="Gender"
@@ -86,8 +95,8 @@ export const RandomNameForm = () => {
       </View>
       <DMButton title={'Get Name'} onClick={handleGenerateName} />
     </FrameView>
-  )
-}
+  );
+};
 
 const styles = StyleSheet.create({
   optionsRow: {
@@ -109,5 +118,5 @@ const styles = StyleSheet.create({
   },
   selectedItem: {
     color: Colors.white,
-  }
-})
+  },
+});

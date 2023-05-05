@@ -10,7 +10,7 @@ import {
 import { colors } from '../../styles/colors';
 import { inputStyles } from '../../styles/input';
 import Entypo from '@expo/vector-icons/Entypo';
-import {Colors} from '../../../../utilities';
+import { Colors } from '../../../../utilities';
 
 const DropdownSelectedItemsView = ({
   placeholder,

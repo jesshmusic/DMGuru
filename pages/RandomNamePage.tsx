@@ -1,5 +1,5 @@
 import PageLayout from '../containers/PageLayout';
-import {RandomNameForm} from '../components/RandomNameForm';
+import { RandomNameForm } from '../components/RandomNameForm';
 import React from 'react';
 
 export const RandomNamePage = () => {
@@ -7,5 +7,5 @@ export const RandomNamePage = () => {
     <PageLayout>
       <RandomNameForm />
     </PageLayout>
-  )
-}
+  );
+};
