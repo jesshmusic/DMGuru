@@ -4,10 +4,11 @@ import BackgroundImage from '../assets/dndFrameOrange.png';
 import React from 'react';
 import {Colors, getIconForPage} from '../utilities';
 
-export const FrameView = (props: {title: string, subtitle: string, children: React.ReactNode, iconName: string}) => {
-  const { title, subtitle, children, iconName } = props;
+export const FrameView = (props: {title: string, subtitle: string, children: React.ReactNode, iconName: string, maxWidth?: number}) => {
+  const { title, subtitle, children, iconName, maxWidth } = props;
+  const frameStyles = maxWidth ? {...styles.frame, maxWidth} : styles.frame;
   return (
-    <View style={styles.frame}>
+    <View style={frameStyles}>
       <View style={styles.border}></View>
       <View style={styles.body}>
         <View style={styles.titleContainer}>

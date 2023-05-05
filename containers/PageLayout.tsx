@@ -43,10 +43,10 @@ const styles = StyleSheet.create({
   header: {
     display: 'flex',
     flexDirection: 'row',
-    justifyContent: 'space-between'
+    justifyContent: 'center'
   },
   image: {
-    alignItems: 'center',
+    alignItems: 'stretch',
     flex: 1,
     resizeMode: 'cover',
     justifyContent: 'space-between',

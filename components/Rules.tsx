@@ -10,14 +10,16 @@ export type Rule = {
   rules?: Rule[]
 }
 
-export const Rules = (props: { results: Rule[] }) => {
+export const Rules = (props: { results: Rule[], onPress: (index: number) => void }) => {
   const { results } = props;
   const [expanded, setExpanded] = useState(-1);
 
   const onExpand = (index: number) => {
     if (expanded === index) {
       setExpanded(-1);
+      props.onPress(-1);
     } else {
+      props.onPress(index);
       setExpanded(index);
     }
   }

@@ -15,6 +15,7 @@ export enum Colors {
   primaryDark = '#571a10',
   info = '#c9ad6a',
   warning = '#dd9529',
+  warningDark = '#523810',
   danger = '#992e2e',
   light = '#a5a69c',
   dark = '#222321',
@@ -22,8 +23,8 @@ export enum Colors {
   black = '#000'
 }
 
-export const API_URL = process.env.NODE_ENV === 'development' ? 'http://localhost:3000' : 'https://dungeonmaster.guru';
-// export const API_URL = 'https://dungeonmaster.guru';
+// export const API_URL = process.env.NODE_ENV === 'development' ? 'http://localhost:3000' : 'https://dungeonmaster.guru';
+export const API_URL = 'https://dungeonmaster.guru';
 
 export const getIconForPage = (pageName: string, size: number = 15): JSX.Element => {
   switch (pageName) {

@@ -25,7 +25,7 @@ export const RandomTavernForm = () => {
   };
 
   return (
-    <FrameView title='Tavern Name' subtitle="Generate a random tavern name" iconName="Tavern Name">
+    <FrameView title='Tavern Name' subtitle="Generate a random tavern name" iconName="Tavern Name" maxWidth={600}>
       <ResultView name={name} isLoading={isLoading} loadingText={'Generating Tavern...'} />
       <View style={styles.optionsRow}>
         <DMButton title={'Get Tavern'} onClick={handleGenerateName} />

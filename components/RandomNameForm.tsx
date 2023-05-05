@@ -56,7 +56,7 @@ export const RandomNameForm = () => {
   };
 
   return (
-    <FrameView title='Fantasy Character Name' subtitle="Generate a random fantasy name based on gender and race" iconName="PC Name">
+    <FrameView title='Fantasy Character Name' subtitle="Generate a random fantasy name based on gender and race" iconName="PC Name" maxWidth={600}>
       <ResultView name={name} isLoading={isLoading} loadingText={'Generating Name...'}/>
       <View style={styles.optionsRow}>
         <Dropdown

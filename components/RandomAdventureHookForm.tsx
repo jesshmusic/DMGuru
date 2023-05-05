@@ -27,7 +27,7 @@ export const RandomAdventureHookForm = () => {
   };
 
   return (
-    <FrameView title='Adventure Hook' subtitle="Generate a random adventure hook" iconName="Adventure Hook">
+    <FrameView title='Adventure Hook' subtitle="Generate a random adventure hook" iconName="Adventure Hook" maxWidth={600}>
       <ResultView name={name} isLoading={isLoading} loadingText={'Generating Hook...' }/>
       <View style={styles.optionsRow}>
         <Text style={styles.text}>Number of Players: {playerCount}</Text>
