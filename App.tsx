@@ -4,7 +4,6 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { Colors, getIconForPage } from './utilities';
 import { RandomHookPage } from './pages/RandomHookPage';
-import { RandomTavernPage } from './pages/RandomTavernPage';
 import { RandomNamePage } from './pages/RandomNamePage';
 import { RuleSearchPage } from './pages/RuleSearchPage';
 
@@ -49,8 +48,7 @@ export default function App() {
             headerShown: false,
           })}
         >
-          <Tab.Screen name="PC Name" component={RandomNamePage} />
-          <Tab.Screen name="Tavern Name" component={RandomTavernPage} />
+          <Tab.Screen name="Random Names" component={RandomNamePage} />
           <Tab.Screen name="Adventure Hook" component={RandomHookPage} />
           <Tab.Screen name="Rules" component={RuleSearchPage} />
         </Tab.Navigator>

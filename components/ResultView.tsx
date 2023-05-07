@@ -5,27 +5,29 @@ import { useState } from 'react';
 import DndSpinner from './DndSpinner';
 
 export const ResultView = (props: {
-  name: string;
+  name?: string;
   isLoading: boolean;
   loadingText: string;
 }) => {
   const [containerStyle, setContainerStyle] = useState(styles.container);
   const [isCopied, setIsCopied] = useState(false);
+
+  const { name, isLoading, loadingText } = props;
   const onPress = async () => {
     setContainerStyle(styles.containerCopied);
-    await Clipboard.setStringAsync(props.name);
+    await Clipboard.setStringAsync(name);
     setIsCopied(true);
   };
 
-  return (
-    <View style={styles.wrapper}>
-      {props.isLoading ? (
-        <DndSpinner text={props.loadingText} />
-      ) : (
+  const renderResult = () => {
+    if (isLoading) {
+      return <DndSpinner text={loadingText} />
+    } else if (name) {
+      return (
         <>
           <View style={containerStyle}>
             <Text style={styles.text} onPress={onPress}>
-              {props.name}
+              {name}
             </Text>
           </View>
           {isCopied ? (
@@ -36,7 +38,17 @@ export const ResultView = (props: {
             </Text>
           )}
         </>
-      )}
+      )
+    } else {
+      return (
+        <></>
+      )
+    }
+  }
+
+  return (
+    <View style={styles.wrapper}>
+      {renderResult()}
     </View>
   );
 };

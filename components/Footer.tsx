@@ -6,8 +6,8 @@ import { Image } from 'expo-image';
 import React from 'react';
 
 export const Footer = () => {
-  const _handlePressButtonAsync = async () => {
-    await WebBrowser.openBrowserAsync('https://dungeonmaster.guru');
+  const _handlePressButtonAsync = async (url: string) => {
+    await WebBrowser.openBrowserAsync(url);
   };
 
   return (
@@ -20,7 +20,11 @@ export const Footer = () => {
           </Text>
         </View>
         <View style={styles.right}>
-          <TouchableHighlight onPress={_handlePressButtonAsync}>
+          <TouchableHighlight
+            onPress={() =>
+              _handlePressButtonAsync('https://dungeonmaster.guru')
+            }
+          >
             <Image
               source={DMLogo}
               contentFit="cover"
@@ -31,8 +35,19 @@ export const Footer = () => {
         </View>
       </View>
       <Text style={[styles.text, styles.bottom]}>
-        &copy; 2023 Existential Music & Open Game License v 1.0a Copyright 2000,
-        Wizards of the Coast, LLC.
+        The material used in this app is Open Game Content, and is licensed for
+        public use under the terms of the
+        <Text
+          style={{ color: Colors.primaryBright }}
+          onPress={() =>
+            _handlePressButtonAsync(
+              'https://media.wizards.com/2016/downloads/SRD-OGL_V1.1.pdf'
+            )
+          }
+        >
+          {' '}
+          Open Game License v1.0a Copyright 2000, Wizards of the Coast, Inc.
+        </Text>
       </Text>
     </View>
   );
@@ -61,7 +76,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
   },
   bottom: {
-    fontSize: 10,
+    fontSize: 12,
   },
   left: {
     flex: 2,
